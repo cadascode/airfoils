@@ -1,0 +1,64 @@
+[project]
+name = "airfoils"
+version = "0.2.3"
+description = "Airfoils is a small Python library for object-oriented airfoil modelling. The library provides tools to easily instantiate airfoil objects and to query geometric information. An airfoil object is defined by upper and a lower surface coordinates."
+authors = [
+    { name = "Aaron Dettmann", email = "dettmann@kth.se"}
+]
+dependencies = [
+   "matplotlib>=3.2.1",
+   "numpy>=2.3.0",
+   "scipy>=1.16.2",
+]
+
+readme = "README.rst"
+license = "Apache-2.0"
+license-files = ["LICENSE.txt"]
+requires-python = ">= 3.12, <3.13"
+
+classifiers = [
+   "Programming Language :: Python :: 3",
+   "Programming Language :: Python :: 3.12",
+   "License :: OSI Approved :: Apache Software License",
+   "Operating System :: OS Independent",
+   "Environment :: Console",
+   "Intended Audience :: Developers",
+   "Intended Audience :: Education",
+   "Intended Audience :: Science/Research",
+   "Topic :: Scientific/Engineering",
+   "Topic :: Scientific/Engineering :: Physics",
+]
+
+[project.urls]
+Homepage = "https://github.com/airinnova/airfoil"
+Documentation = "https://pypi.org/project/airfoils/"
+Repository = "https://github.com/airinnova/airfoil"
+
+[project.scripts]
+xac = "xac.cli:main"
+extract_hoops = "xac.extract_hoops:main"
+
+[tool.uv]
+managed = true
+dev-dependencies = [
+    "black>=24.10.0",
+    "ipdb>=0.13.13",
+    "ipython>=8.24.0",
+    "pytest>=8.2.1",
+    "pylint>=3.3.8",
+    "Sphinx>=3.1.0",
+    "codecov>=2.1.4",
+    "pytest-cov>=2.9.0",
+    "sphinx-rtd-theme>=0.4.3",
+    "tox>=3.15.2",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/airfoils"]

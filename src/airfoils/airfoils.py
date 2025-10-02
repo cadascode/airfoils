@@ -19,7 +19,7 @@
 
 # Authors:
 # * Aaron Dettmann
-
+# * October 2025 - Modified by Christopher Smith.
 """
 Provides tools to create and modify airfoil objects
 
@@ -32,7 +32,7 @@ import re
 
 import numpy as np
 from scipy.interpolate import interp1d
-from scipy.misc import derivative
+from scipy.differentiate import derivative
 import matplotlib.pyplot as plt
 
 POINTS_AIRFOIL = 200
@@ -310,8 +310,8 @@ class Airfoil:
             scalar_input = True
     ########################
 
-        dydx = derivative(self.camber_line, x, dx=1e-12)
-        theta = np.rad2deg(np.arctan(dydx))
+        dydx = derivative(self.camber_line, x, initial_step=1e-12)
+        theta = np.rad2deg(np.arctan(dydx.df))
         theta = np.array([0 if abs(x) > 50 else x for x in theta])
 
     ########################
