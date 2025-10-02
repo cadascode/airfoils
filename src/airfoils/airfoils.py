@@ -19,7 +19,7 @@
 
 # Authors:
 # * Aaron Dettmann
-
+# * October 2025 - Modified by Christopher Smith.
 """
 Provides tools to create and modify airfoil objects
 
